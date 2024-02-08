@@ -1,0 +1,36 @@
+//4.       Leer 10 números enteros, almacenarlos en un arreglo y determinar cuántos números de los almacenados en dicho arreglo comienzan en dígito primo
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] numeros = new int[10];
+        Console.WriteLine("Ingrese 10 números enteros:");
+        for (int i = 0; i < 10; i++)
+        {
+            numeros[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        int cantidadPrimosIniciales = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            if (EsPrimo(numeros[i].ToString()[0] - '0'))
+            {
+                cantidadPrimosIniciales++;
+            }
+        }
+        Console.WriteLine($"La cantidad de números que comienzan en dígito primo es: {cantidadPrimosIniciales}");
+    }
+
+    static bool EsPrimo(int numero)
+    {
+        if (numero <= 1)
+            return false;
+        for (int i = 2; i <= Math.Sqrt(numero); i++)
+        {
+            if (numero % i == 0)
+                return false;
+        }
+        return true;
+    }
+}
