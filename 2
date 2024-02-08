@@ -1,0 +1,29 @@
+//2. Leer 10 enteros, almacenarlos en un arreglo y determinar en qué posición de del arreglo está el mayor número par leído.
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] numeros = new int[10];
+        Console.WriteLine("Ingrese 10 números enteros:");
+        for (int i = 0; i < 10; i++)
+        {
+            numeros[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        int mayorPar = int.MinValue;
+        int posicionMayorPar = -1;
+        for (int i = 0; i < 10; i++)
+        {
+            if (numeros[i] % 2 == 0 && numeros[i] > mayorPar)
+            {
+                mayorPar = numeros[i];
+                posicionMayorPar = i;
+            }
+        }
+        if (posicionMayorPar != -1)
+            Console.WriteLine("El mayor número par leído está en la posición: " + posicionMayorPar);
+        else
+            Console.WriteLine("No se encontraron números pares.");
+    }
+}
