@@ -1,0 +1,29 @@
+//6.       Leer 10 números enteros, almacenarlos en un arreglo y determinar en qué posiciones se encuentran los números con más de 3 dígitos
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] numeros = new int[10];
+        Console.WriteLine("Ingrese 10 números enteros:");
+        for (int i = 0; i < 10; i++)
+        {
+            numeros[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        Console.WriteLine("Posiciones de los números con más de 3 dígitos:");
+        for (int i = 0; i < 10; i++)
+        {
+            if (NumerosMasTresDigitos(numeros[i]))
+            {
+                Console.WriteLine($"Número {numeros[i]} en posición {i}");
+            }
+        }
+    }
+
+    static bool NumerosMasTresDigitos(int numero)
+    {
+        return Math.Abs(numero) >= 1000;
+    }
+}
