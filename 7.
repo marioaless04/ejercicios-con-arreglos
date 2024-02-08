@@ -1,0 +1,27 @@
+//7.       Leer 10 números enteros, almacenarlos en un arreglo y determinar a cuánto es igual el promedio entero de los datos del arreglo
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+          int[] numeros = new int[10];
+        Console.WriteLine("Ingrese 10 números enteros:");
+        for (int i = 0; i < 10; i++)
+        {
+            numeros[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        int suma = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            suma += numeros[i];
+        }
+        double promedio = (double)suma / 10;
+        Console.WriteLine($"El promedio entero de los datos del arreglo es: {Convert.ToInt32(promedio)}");
+    }
+
+    static bool NumerosMasDeTresDigitos(int numero)
+    {
+        return Math.Abs(numero) >= 1000;
+    }
+}
