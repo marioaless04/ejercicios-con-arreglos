@@ -1,0 +1,41 @@
+//3. Leer 10 enteros, almacenarlos en un arreglo y determinar en qué posición del arreglo está el mayor número primo leído.
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] numeros = new int[10];
+        Console.WriteLine("Ingrese 10 números enteros:");
+        for (int i = 0; i < 10; i++)
+        {
+            numeros[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        int mayorPrimo = int.MinValue;
+        int posicionMayorPrimo = -1;
+        for (int i = 0; i < 10; i++)
+        {
+            if (EsPrimo(numeros[i]) && numeros[i] > mayorPrimo)
+            {
+                mayorPrimo = numeros[i];
+                posicionMayorPrimo = i;
+            }
+        }
+        if (posicionMayorPrimo != -1)
+            Console.WriteLine($"El mayor número primo leído está en la posición {posicionMayorPrimo}" );
+        else
+            Console.WriteLine("No se encontraron números primos.");
+    }
+
+    static bool EsPrimo(int numero)
+    {
+        if (numero <= 1)
+            return false;
+        for (int i = 2; i <= Math.Sqrt(numero); i++)
+        {
+            if (numero % i == 0)
+                return false;
+        }
+        return true;
+    }
+}
